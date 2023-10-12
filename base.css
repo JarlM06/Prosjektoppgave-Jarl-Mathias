@@ -1,0 +1,19 @@
+#bloonDiv {
+    /* Lager flexbox for å holde knappen i */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#bloonButton {
+    /* Fjerner all 'styling' fra knappen sånn at bildet er det eneste som sees */
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    background-color: white;
+}
+
+#bloonImg {
+    /* Størrelsen til bildet/knappen vil endre seg med størrelsen på vinduet */
+    max-width: 30vw;
+    max-height: 30vh;
+}

@@ -3,9 +3,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Navn på spill]</title>
+    <!-- Kobler CSS og JavaScript til HTML filen -->
+    <link rel="stylesheet" href="base.css">
+    <script src="main.js"></script>
+    <title>Bloons Clicker</title>
 </head>
 <body>
-    
+    <!-- Div for å holde knappen i, fungerer som flexbox -->
+    <div id="bloonDiv">
+        <!-- Knappen som blir trykket for å tjene 'pops' -->
+        <button id="bloonButton" onclick="test()">
+            <!-- Bilde som ligger i knappen, endrer 'brightness' når musen er over eller utenfor bildet -->
+            <img id="bloonImg" src="Bilder/redBloon.png" alt="Bloon" onmouseover="this.style.filter='brightness(80%)'" onmouseout="this.style.filter='brightness(100%)'">
+        </button>
+    </div>
 </body>
 </html>

@@ -1,3 +1,8 @@
+body {
+    /* Generell CSS for nettsiden */
+    margin: 0;
+}
+
 #bloonDivRow {
     /* Lager flexbox for å holde knappen i, sorterer innholdet i en rad (horisontalt) */
     display: flex;
@@ -35,10 +40,18 @@
     /* Flexbox som skal inneholde alle oppgraderingene */
     display: flex;
     justify-content: space-evenly;
+    height: 20vh;
 }
 
 .upgradeButton {
     /* Felles CSS for alle oppgraderings-knappene */
+    width: 25%;
+    background-color: red;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 0;
+    border-style: solid;
+    border-color: black;
     /* 'white-space: pre-line' gjør at man kan bruke \n i JavaScript */
     white-space: pre-line;
 }

@@ -30,3 +30,15 @@
     max-width: 30vw;
     max-height: 30vh;
 }
+
+#upgrades {
+    /* Flexbox som skal inneholde alle oppgraderingene */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.upgradeButton {
+    /* Felles CSS for alle oppgraderings-knappene */
+    /* 'white-space: pre-line' gjør at man kan bruke \n i JavaScript */
+    white-space: pre-line;
+}

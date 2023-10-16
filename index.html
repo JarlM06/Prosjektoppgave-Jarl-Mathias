@@ -3,19 +3,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Kobler CSS og JavaScript til HTML filen -->
+    <!-- Linker til CSS og JavaScript -->
     <link rel="stylesheet" href="base.css">
     <script src="main.js"></script>
     <title>Bloons Clicker</title>
 </head>
 <body>
-    <!-- Div for å holde knappen i, fungerer som flexbox -->
-    <div id="bloonDiv">
-        <!-- Knappen som blir trykket for å tjene 'pops' -->
-        <button id="bloonButton" onclick="test()">
-            <!-- Bilde som ligger i knappen, endrer 'brightness' når musen er over eller utenfor bildet -->
-            <img id="bloonImg" src="Bilder/redBloon.png" alt="Bloon" onmouseover="this.style.filter='brightness(80%)'" onmouseout="this.style.filter='brightness(100%)'">
-        </button>
+    <!-- Div som sorterer innholde i en rad (horisontalt), fungerer som flexbox -->
+    <div id="bloonDivRow">
+        <!-- Div som sorterer innholde i en kolonne (vertikalt), fungerer som flexbox -->
+        <div id="bloonDivCol">
+            <!-- Tekst hvor antall pops blir vist -->
+            <h1 id="popCounter">0 pops</h1>
+            <!-- Knappen som blir trykket for å tjene 'pops' -->
+            <button id="bloonButton" onclick="addPop()">
+                <!-- Bildet som ligger i knappen, endrer 'brightness' når musen er over eller utenfor bildet -->
+                <img id="bloonImg" src="Bilder/redBloon.png" alt="Bloon" onmouseover="this.style.filter='brightness(80%)'" onmouseout="this.style.filter='brightness(100%)'">
+            </button>
+        </div>
     </div>
 </body>
 </html>

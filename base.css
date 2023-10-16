@@ -1,7 +1,20 @@
-#bloonDiv {
-    /* Lager flexbox for å holde knappen i */
+#bloonDivRow {
+    /* Lager flexbox for å holde knappen i, sorterer innholdet i en rad (horisontalt) */
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+}
+
+#bloonDivCol {
+    /* Lager flexbox for å holde knappen i, sorterer innholdet i en kolonne (vertikalt) */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#popCounter {
+    /* Sentrerer teksten */
+    text-align: center;
 }
 
 #bloonButton {

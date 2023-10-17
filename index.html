@@ -16,7 +16,7 @@
             <!-- Tekst hvor antall pops blir vist -->
             <h1 id="popCounter">0 pops</h1>
             <!-- Knappen som blir trykket for å tjene 'pops' -->
-            <button id="bloonButton" onclick="addPop()">
+            <button id="bloonButton" onclick="addPopClick()">
                 <!-- Bildet som ligger i knappen, endrer 'brightness' når musen er over eller utenfor bildet -->
                 <img id="bloonImg" src="Bilder/redBloon.png" alt="Bloon" onmouseover="this.style.filter='brightness(80%)'" onmouseout="this.style.filter='brightness(100%)'">
             </button>
@@ -26,8 +26,8 @@
     <!-- Flexbox som skal inneholde alle oppgraderingene brukeren kan skaffe seg -->
     <div id="upgrades">
         <!-- En knapp som skal øke hvor mange 'pops' brukeren får for hvert click, viser pris og totalt 'pops per click' -->
-        <button id="multiplyPopsButton" class="upgradeButton" onclick="multiplyPops()">+1 pop per click <br> Cost: 20 pops <br> Current pops per click: 1</button>
-        <button class="upgradeButton"></button>
+        <button class="upgradeButton" id="multiplyPopsButton" onclick="multiplyPops()">+1 pop per click <br> Cost: 100 pops <br> Current pops per click: 1</button>
+        <button class="upgradeButton" id="popsPerSecButton" onclick="addPopPerSec()">+1 pop per second <br> Cost: 20 pops <br> Current pops per second: 0</button>
         <button class="upgradeButton"></button>
         <button class="upgradeButton"></button>
     </div>

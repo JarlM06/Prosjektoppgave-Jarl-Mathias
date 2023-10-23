@@ -121,6 +121,12 @@ function addPopValue() {
         // Bytter bildet til 'bloon' etter hvor mye den er verdt
         if(popValue === 2) {
             bloonImg.src="Bilder/BlueBloon.png";
-        };
+        } else if(popValue === 3) {
+            bloonImg.src="Bilder/GreenBloon.png";
+        } else if(popValue === 4) {
+            bloonImg.src="Bilder/YellowBloon.png";
+        } else if(popValue === 5) {
+            bloonImg.src="Bilder/PinkBloon.png";
+        }
     };
 };

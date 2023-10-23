@@ -7,3 +7,4 @@
 - I tillegg til styling vil jeg prøve meg på litt mer interessante og utfordrende funksjoner og oppgraderinger
 - Jeg har laget et lignende spill før, så i starten kommer jeg til å bruke litt av den koden og bruke tid på å forbedre den
 - Mitt endelige mål med prosjektet er å ha et spill som kan spilles en stund, har variasjon og interresante funksjoner, med et behagelig layout/design
+- Lage egne modeller i Adobe Illustrator ol.

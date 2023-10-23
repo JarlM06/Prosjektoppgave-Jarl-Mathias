@@ -108,6 +108,7 @@ function addPopValue() {
     // Henter tekstelementet og knappelementet
     let popCounter = document.getElementById("popCounter");
     let popValueButton = document.getElementById("popValueButton");
+    let bloonImg = document.getElementById("bloonImg");
     // Sjekker om spilleren har råd til å kjøpe oppgraderingen
     if(totalPops >= popValueCost) {
         // Endrer variabler etter hvordan oppgraderingen funker
@@ -117,5 +118,9 @@ function addPopValue() {
         // Endrer teksten til å stemme
         popValueButton.textContent = `Bloon is worth more \n +1 pop value \n Cost: ${popValueCost} pops \n Current pop value: ${popValue}`;
         popCounter.textContent = `${totalPops} pops`;
+        // Bytter bildet til 'bloon' etter hvor mye den er verdt
+        if(popValue === 2) {
+            bloonImg.src="Bilder/BlueBloon.png";
+        };
     };
 };

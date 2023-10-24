@@ -2,17 +2,20 @@
 let totalPops = 0;
 let popsMultiplier = 1;
 let multiplyPopsCost = 100;
-let popsPerSec = 0;
-let popsPerSecCost = 20;
+let dartMonkeys = 0;
+let dartMonkeyCost = 20;
 let popValue = 1;
 let popValueCost = 1000;
+let popCD = 1;
+let popCDCost = 200;
 let startBackground = true;
 
 // En funksjon som kjører ti ganger i sekundet
 function doPerDeciSec() {
     let multiplyPopsButton = document.getElementById("multiplyPopsButton");
-    let popsPerSecButton = document.getElementById("popsPerSecButton");
+    let dartMonkeyButton = document.getElementById("dartMonkeyButton");
     let popValueButton = document.getElementById("popValueButton");
+    let popCDButton = document.getElementById("popCDButton");
 
     // Sjekker om brukeren har råd til en oppgradering
     // Gjør dette for hver oppgradering
@@ -24,10 +27,10 @@ function doPerDeciSec() {
         multiplyPopsButton.style.backgroundColor = "red";
     }
 
-    if(totalPops >= popsPerSecCost) {
-        popsPerSecButton.style.backgroundColor = "green";
+    if(totalPops >= dartMonkeyCost) {
+        dartMonkeyButton.style.backgroundColor = "green";
     } else {
-        popsPerSecButton.style.backgroundColor = "red";
+        dartMonkeyButton.style.backgroundColor = "red";
     }
 
     if(totalPops >= popValueCost) {
@@ -35,13 +38,18 @@ function doPerDeciSec() {
     } else {
         popValueButton.style.backgroundColor = "red";
     };
+
+    if(totalPops >= popCDCost) {
+        popCDButton.style.backgroundColor = "green";
+    } else {
+        popCDButton.style.backgroundColor = "red";
+    };
 };
 
 //En funksjon som kjører hvert sekund
-function doPerSecond() {
-    addPop(popsPerSec);
-    console.log('perSecond');
-}
+function dartMonkeyAttack() {
+    addPop(dartMonkeys);
+};
 
 // Funksjonen når 'pops' skal legges til
 function addPop(multiplier) {
@@ -55,7 +63,7 @@ function addPop(multiplier) {
     // Første gang funksjonen blir kalt starter det et 'interval' som alltid kjører en funksjon i bakgrunnen
     if(startBackground === true) {
         deciSecInterval = setInterval(doPerDeciSec, 100);
-        secInterval = setInterval(doPerSecond, 1000);
+        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / popCD));
         startBackground = false;
     };
 };
@@ -85,20 +93,20 @@ function multiplyPops() {
 };
 
 // Funksjon som øker antall 'pops' man automatisk får i sekundet
-function addPopPerSec() {
+function addDartMonkey() {
     // Henter tekstelementet og knappelementet
     let popCounter = document.getElementById("popCounter");
-    let popsPerSecButton = document.getElementById("popsPerSecButton");
+    let dartMonkeyButton = document.getElementById("dartMonkeyButton");
 
     // Sjekker om spilleren har råd til å kjøpe oppgraderingen
-    if(totalPops >= popsPerSecCost){
+    if(totalPops >= dartMonkeyCost){
         // Endrer variabler etter hvordan oppgraderingen funker
-        totalPops -= popsPerSecCost;
-        popsPerSec += 1;
-        popsPerSecCost *= 1.5;
-        popsPerSecCost = Math.round(popsPerSecCost);
+        totalPops -= dartMonkeyCost;
+        dartMonkeys += 1;
+        dartMonkeyCost *= 1.5;
+        dartMonkeyCost = Math.round(dartMonkeyCost);
         // Endrer teksten til å stemme
-        popsPerSecButton.textContent = `+1 pop per second \n Cost: ${popsPerSecCost} pops \n Current pops per second: ${popsPerSec}`;
+        dartMonkeyButton.textContent = `Dart monkeys pop bloons automatically \n +1 dart monkey \n Cost: ${dartMonkeyCost} pops \n Current amount of dart monkeys: ${dartMonkeys}`;
         popCounter.textContent = `${totalPops} pops`;
     };
 };
@@ -128,5 +136,29 @@ function addPopValue() {
         } else if(popValue === 5) {
             bloonImg.src="Bilder/PinkBloon.png";
         }
+    };
+};
+
+function reducePopCD() {
+    // Henter tekstelementet og knappelementet
+    let popCounter = document.getElementById("popCounter");
+    let popCDButton = document.getElementById("popCDButton");
+    // Sjekker om spilleren har råd til å kjøpe oppgraderingen
+    if(totalPops >= popCDCost) {
+        // Endrer variabler etter hvordan oppgraderingen funker
+        totalPops -= popCDCost;
+        popCD += 0.05;
+        popCD = Math.round(popCD * 100) / 100;
+        console.log(popCD);
+        popCDCost *= 1.2;
+        console.log(popCDCost);
+        popCDCost = Math.round(popCDCost);
+        console.log(popCDCost);
+        // Endrer teksten til å stemme
+        popCDButton.textContent = `Increases dart monkey attack speed \n +5% attack speed \n Cost: ${popCDCost} \n Current attack speed (per second): ${popCD}`;
+        popCounter.textContent = `${totalPops} pops`;
+        // Restarter intervallet som kjører i bakgrunnen
+        clearInterval(dartMonkeyInterval);
+        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / popCD));
     };
 };

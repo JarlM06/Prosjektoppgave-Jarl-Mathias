@@ -42,6 +42,7 @@ body {
     /* Størrelsen til bildet/knappen vil endre seg med størrelsen på vinduet */
     max-width: 30vw;
     max-height: 30vh;
+    cursor: url("Bilder/Dart.png") 5 5, auto;
 }
 
 #upgrades {

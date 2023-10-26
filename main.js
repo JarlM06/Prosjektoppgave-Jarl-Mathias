@@ -4,18 +4,24 @@ let popsMultiplier = 1;
 let multiplyPopsCost = 100;
 let dartMonkeys = 0;
 let dartMonkeyCost = 20;
+let boomerangMonkeys = 0;
+let boomerangMonkeyCost = 2000;
 let popValue = 1;
 let popValueCost = 1000;
-let popCD = 1;
-let popCDCost = 200;
+let dartCD = 1;
+let dartCDCost = 200;
+let boomerangCD = 1;
+let boomerangCDCost = 4000;
 let startBackground = true;
 
 // En funksjon som kjører ti ganger i sekundet
 function doPerDeciSec() {
     let multiplyPopsButton = document.getElementById("multiplyPopsButton");
     let dartMonkeyButton = document.getElementById("dartMonkeyButton");
+    let boomerangMonkeyButton = document.getElementById("boomerangMonkeyButton");
     let popValueButton = document.getElementById("popValueButton");
-    let popCDButton = document.getElementById("popCDButton");
+    let dartCDButton = document.getElementById("dartCDButton");
+    let boomerangCDButton = document.getElementById("boomerangCDButton");
 
     // Sjekker om brukeren har råd til en oppgradering
     // Gjør dette for hver oppgradering
@@ -33,22 +39,41 @@ function doPerDeciSec() {
         dartMonkeyButton.style.backgroundColor = "red";
     }
 
+    if(totalPops >= boomerangMonkeyCost) {
+        boomerangMonkeyButton.style.backgroundColor = "green";
+    } else {
+        boomerangMonkeyButton.style.backgroundColor = "red";
+    }
+
     if(totalPops >= popValueCost) {
         popValueButton.style.backgroundColor = "green";
     } else {
         popValueButton.style.backgroundColor = "red";
     };
 
-    if(totalPops >= popCDCost) {
-        popCDButton.style.backgroundColor = "green";
+    if(totalPops >= dartCDCost) {
+        dartCDButton.style.backgroundColor = "green";
     } else {
-        popCDButton.style.backgroundColor = "red";
+        dartCDButton.style.backgroundColor = "red";
+    };
+    
+    if(totalPops >= boomerangCDCost) {
+        boomerangCDButton.style.backgroundColor = "green";
+    } else {
+        boomerangCDButton.style.backgroundColor = "red";
     };
 };
 
 //En funksjon som kjører hvert sekund
 function dartMonkeyAttack() {
     addPop(dartMonkeys);
+    console.log("dart attack");
+};
+
+//En funksjon som kjører hvert sekund
+function boomerangMonkeyAttack() {
+    addPop(boomerangMonkeys * 5);
+    console.log("boomerang attack");
 };
 
 // Funksjonen når 'pops' skal legges til
@@ -63,7 +88,8 @@ function addPop(multiplier) {
     // Første gang funksjonen blir kalt starter det et 'interval' som alltid kjører en funksjon i bakgrunnen
     if(startBackground === true) {
         deciSecInterval = setInterval(doPerDeciSec, 100);
-        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / popCD));
+        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / dartCD));
+        boomerangMonkeyInterval = setInterval(boomerangMonkeyAttack, (1000 / boomerangCD));
         startBackground = false;
     };
 };
@@ -103,10 +129,28 @@ function addDartMonkey() {
         // Endrer variabler etter hvordan oppgraderingen funker
         totalPops -= dartMonkeyCost;
         dartMonkeys += 1;
-        dartMonkeyCost *= 1.5;
+        dartMonkeyCost *= 1.3;
         dartMonkeyCost = Math.round(dartMonkeyCost);
         // Endrer teksten til å stemme
         dartMonkeyButton.textContent = `Dart monkeys pop bloons automatically \n +1 dart monkey \n Cost: ${dartMonkeyCost} pops \n Current amount of dart monkeys: ${dartMonkeys}`;
+        popCounter.textContent = `${totalPops} pops`;
+    };
+};
+
+function addBoomerangMonkey() {
+    // Henter tekstelementet og knappelementet
+    let popCounter = document.getElementById("popCounter");
+    let boomerangMonkeyButton = document.getElementById("boomerangMonkeyButton");
+
+    // Sjekker om spilleren har råd til å kjøpe oppgraderingen
+    if(totalPops >= boomerangMonkeyCost){
+        // Endrer variabler etter hvordan oppgraderingen funker
+        totalPops -= boomerangMonkeyCost;
+        boomerangMonkeys += 1;
+        boomerangMonkeyCost *= 1.5;
+        boomerangMonkeyCost = Math.round(boomerangMonkeyCost);
+        // Endrer teksten til å stemme
+        boomerangMonkeyButton.textContent = `Boomerang monkeys pop 5 bloons at a time \n +1 boomerang monkey \n Cost: ${boomerangMonkeyCost} pops \n Current amount of boomerang monkeys: ${boomerangMonkeys}`;
         popCounter.textContent = `${totalPops} pops`;
     };
 };
@@ -139,26 +183,50 @@ function addPopValue() {
     };
 };
 
-function reducePopCD() {
+function reduceDartCD() {
     // Henter tekstelementet og knappelementet
     let popCounter = document.getElementById("popCounter");
-    let popCDButton = document.getElementById("popCDButton");
+    let dartCDButton = document.getElementById("dartCDButton");
     // Sjekker om spilleren har råd til å kjøpe oppgraderingen
-    if(totalPops >= popCDCost) {
+    if(totalPops >= dartCDCost) {
         // Endrer variabler etter hvordan oppgraderingen funker
-        totalPops -= popCDCost;
-        popCD += 0.05;
-        popCD = Math.round(popCD * 100) / 100;
-        console.log(popCD);
-        popCDCost *= 1.2;
-        console.log(popCDCost);
-        popCDCost = Math.round(popCDCost);
-        console.log(popCDCost);
+        totalPops -= dartCDCost;
+        dartCD += 0.05;
+        dartCD = Math.round(dartCD * 100) / 100;
+        console.log(dartCD);
+        dartCDCost *= 1.2;
+        console.log(dartCDCost);
+        dartCDCost = Math.round(dartCDCost);
+        console.log(dartCDCost);
         // Endrer teksten til å stemme
-        popCDButton.textContent = `Increases dart monkey attack speed \n +5% attack speed \n Cost: ${popCDCost} \n Current attack speed (per second): ${popCD}`;
+        dartCDButton.textContent = `Increases dart monkey attack speed \n +5% attack speed \n Cost: ${dartCDCost} \n Current attack speed (per second): ${dartCD}`;
         popCounter.textContent = `${totalPops} pops`;
         // Restarter intervallet som kjører i bakgrunnen
         clearInterval(dartMonkeyInterval);
-        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / popCD));
+        dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / dartCD));
+    };
+};
+
+function reduceBoomerangCD() {
+    // Henter tekstelementet og knappelementet
+    let popCounter = document.getElementById("popCounter");
+    let boomerangCDButton = document.getElementById("boomerangCDButton");
+    // Sjekker om spilleren har råd til å kjøpe oppgraderingen
+    if(totalPops >= boomerangCDCost) {
+        // Endrer variabler etter hvordan oppgraderingen funker
+        totalPops -= boomerangCDCost;
+        boomerangCD += 0.2;
+        boomerangCD = Math.round(boomerangCD * 100) / 100;
+        console.log(boomerangCD);
+        boomerangCDCost *= 1.7;
+        console.log(boomerangCDCost);
+        boomerangCDCost = Math.round(boomerangCDCost);
+        console.log(boomerangCDCost);
+        // Endrer teksten til å stemme
+        boomerangCDButton.textContent = `Increases boomerang monkey attack speed \n +20% attack speed \n Cost: ${boomerangCDCost} \n Current attack speed (per second): ${boomerangCD}`;
+        popCounter.textContent = `${totalPops} pops`;
+        // Restarter intervallet som kjører i bakgrunnen
+        clearInterval(boomerangMonkeyInterval);
+        boomerangMonkeyInterval = setInterval(boomerangMonkeyAttack, (1000 / boomerangCD));
     };
 };

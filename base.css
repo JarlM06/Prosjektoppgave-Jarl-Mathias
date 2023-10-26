@@ -48,19 +48,24 @@ body {
 #upgrades {
     /* Flexbox som skal inneholde alle oppgraderingene */
     display: flex;
-    justify-content: space-evenly;
-    height: 20vh;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, .3);
 }
 
 .upgradeButton {
     /* Felles CSS for alle oppgraderings-knappene */
-    width: 25%;
+    width: 24%;
+    min-height: 20vh;
     background-color: red;
     font-size: large;
     font-weight: bolder;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-width: 4;
     border-radius: 0;
-    border-style: solid;
     border-color: black;
+    border-style: ridge;
     /* 'white-space: pre-line' gjør at man kan bruke \n i JavaScript */
     white-space: pre-line;
 }

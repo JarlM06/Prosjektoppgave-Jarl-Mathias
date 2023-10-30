@@ -179,7 +179,11 @@ function addPopValue() {
             bloonImg.src="Bilder/YellowBloon.png";
         } else if(popValue === 5) {
             bloonImg.src="Bilder/PinkBloon.png";
-        }
+        } else if(popValue === 6) {
+            bloonImg.src="Bilder/BlackBloon.png";
+        } else if(popValue === 7) {
+            bloonImg.src="Bilder/WhiteBloon.png";
+        };
     };
 };
 

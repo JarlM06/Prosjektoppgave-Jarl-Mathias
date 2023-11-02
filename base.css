@@ -57,15 +57,32 @@ body {
     /* Felles CSS for alle oppgraderings-knappene */
     width: 24%;
     min-height: 20vh;
-    background-color: red;
     font-size: large;
     font-weight: bolder;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin: 2%;
     border-width: 4;
     border-radius: 0;
     border-color: black;
     border-style: ridge;
     /* 'white-space: pre-line' gjør at man kan bruke \n i JavaScript */
     white-space: pre-line;
+    /* CSS for å gji knappene en kul stil */
+    align-self: center;
+    background-color: red;
+    border-style: solid;
+    border-width: 2px;
+    color: #1e1e1e;
+    cursor: pointer;
+    /* Lager kantene til knappene */
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    /* Gjør at transitionen (hover) kjører som en animasjon og ikke bytter øyeblikkelig */
+    transition: all 235ms ease-in-out;
+}
+
+.upgradeButton:hover {
+    /* Når musepekeren er over knappen vil den gå litt nedover */
+    transform: translate3d(0, 2px, 0);
 }

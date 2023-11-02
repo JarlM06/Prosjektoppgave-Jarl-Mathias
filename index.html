@@ -11,6 +11,8 @@
 <body>
     <!-- Div som sorterer innholde i en rad (horisontalt), fungerer som flexbox -->
     <div id="bloonDivRow">
+        <!-- Tekst som viser antall pops i sekundet en får -->
+        <h2 id="popsPerSec">Pops per second: 0</h2>
         <!-- Div som sorterer innholde i en kolonne (vertikalt), fungerer som flexbox -->
         <div id="bloonDivCol">
             <!-- Tekst hvor antall pops blir vist -->
@@ -21,6 +23,8 @@
                 <img id="bloonImg" src="Bilder/RedBloon.png" alt="Bloon" onmouseover="this.style.filter='brightness(80%)'" onmouseout="this.style.filter='brightness(100%)'">
             </button>
         </div>
+        <!-- Gjør at de andre div elementene blir sentrert som de skal med flexbox -->
+        <div class="fillerDiv"></div>
     </div>
     <br>
     <!-- Flexbox som skal inneholde alle oppgraderingene brukeren kan skaffe seg -->

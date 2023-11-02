@@ -13,6 +13,9 @@ let dartCDCost = 200;
 let boomerangCD = 1;
 let boomerangCDCost = 4000;
 let startBackground = true;
+let startPops = 0;
+let endPops = 0;
+let popsPerSec = 0;
 
 // En funksjon som kjører ti ganger i sekundet
 function doPerDeciSec() {
@@ -64,6 +67,25 @@ function doPerDeciSec() {
     };
 };
 
+// Starter en funksjon som måler antall pops i sekundet brukeren får
+function startPopsPerSec() {
+    startPops = totalPops;
+    setTimeout(endPopsPerSec, 1000);
+};
+
+// Avslutter funksjon som måler antall pops i sekundet brukeren får
+function endPopsPerSec() {
+    // Henter tekstelementet som viser pops i sekundet
+    let popsPerSecText = document.getElementById("popsPerSec");
+    // Regner ut pops i sekundet
+    endPops = totalPops;
+    popsPerSec = endPops - startPops;
+    // Skriver ut i tekstelementet (sjekker om det er over null, sånn at det ikke vises minus når man kjøper en oppgradering)
+    if(popsPerSec >= 0) {
+        popsPerSecText.textContent = `Pops per second: ${popsPerSec}`;
+    };
+};
+
 //En funksjon som kjører hvert sekund
 function dartMonkeyAttack() {
     addPop(dartMonkeys);
@@ -90,6 +112,7 @@ function addPop(multiplier) {
         deciSecInterval = setInterval(doPerDeciSec, 100);
         dartMonkeyInterval = setInterval(dartMonkeyAttack, (1000 / dartCD));
         boomerangMonkeyInterval = setInterval(boomerangMonkeyAttack, (1000 / boomerangCD));
+        popsPerSecInterval = setInterval(startPopsPerSec, 1200);
         startBackground = false;
     };
 };
@@ -111,7 +134,8 @@ function multiplyPops() {
         // Endrer variabler etter hvordan oppgraderingen funker
         totalPops -= multiplyPopsCost;
         popsMultiplier += 1;
-        multiplyPopsCost *= 2;
+        multiplyPopsCost *= 1.8;
+        multiplyPopsCost = Math.round(multiplyPopsCost);
         // Endrer teksten til å stemme
         multiplyPopsButton.textContent = `+1 pop per click \n Cost: ${multiplyPopsCost} pops \n Current pops per click: ${popsMultiplier}`;
         popCounter.textContent = `${totalPops} pops`;
@@ -129,7 +153,7 @@ function addDartMonkey() {
         // Endrer variabler etter hvordan oppgraderingen funker
         totalPops -= dartMonkeyCost;
         dartMonkeys += 1;
-        dartMonkeyCost *= 1.3;
+        dartMonkeyCost *= 1.2;
         dartMonkeyCost = Math.round(dartMonkeyCost);
         // Endrer teksten til å stemme
         dartMonkeyButton.textContent = `Dart monkeys pop bloons automatically \n +1 dart monkey \n Cost: ${dartMonkeyCost} pops \n Current amount of dart monkeys: ${dartMonkeys}`;
@@ -147,7 +171,7 @@ function addBoomerangMonkey() {
         // Endrer variabler etter hvordan oppgraderingen funker
         totalPops -= boomerangMonkeyCost;
         boomerangMonkeys += 1;
-        boomerangMonkeyCost *= 1.5;
+        boomerangMonkeyCost *= 1.4;
         boomerangMonkeyCost = Math.round(boomerangMonkeyCost);
         // Endrer teksten til å stemme
         boomerangMonkeyButton.textContent = `Boomerang monkeys pop 5 bloons at a time \n +1 boomerang monkey \n Cost: ${boomerangMonkeyCost} pops \n Current amount of boomerang monkeys: ${boomerangMonkeys}`;
@@ -166,7 +190,7 @@ function addPopValue() {
         // Endrer variabler etter hvordan oppgraderingen funker
         totalPops -= popValueCost;
         popValue += 1;
-        popValueCost *= 5;
+        popValueCost *= 4;
         // Endrer teksten til å stemme
         popValueButton.textContent = `Bloon is worth more \n +1 pop value \n Cost: ${popValueCost} pops \n Current pop value: ${popValue}`;
         popCounter.textContent = `${totalPops} pops`;
@@ -198,7 +222,7 @@ function reduceDartCD() {
         dartCD += 0.05;
         dartCD = Math.round(dartCD * 100) / 100;
         console.log(dartCD);
-        dartCDCost *= 1.2;
+        dartCDCost *= 1.1;
         console.log(dartCDCost);
         dartCDCost = Math.round(dartCDCost);
         console.log(dartCDCost);
@@ -222,7 +246,7 @@ function reduceBoomerangCD() {
         boomerangCD += 0.2;
         boomerangCD = Math.round(boomerangCD * 100) / 100;
         console.log(boomerangCD);
-        boomerangCDCost *= 1.7;
+        boomerangCDCost *= 1.6;
         console.log(boomerangCDCost);
         boomerangCDCost = Math.round(boomerangCDCost);
         console.log(boomerangCDCost);

@@ -9,7 +9,29 @@ body {
     /* Lager flexbox for å holde knappen i, sorterer innholdet i en rad (horisontalt) */
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+#popsPerSec {
+    /* Vanglig CSS */
+    margin: 2vw;
+    padding: 1vw;
+    height: fit-content;
+    min-width: 20vw;
+    text-align: center;
+    background-color: rgb(208, 160, 39);
+    color: white;
+    border-color: rgb(30, 30, 30);
+    border-width: 3;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.fillerDiv {
+    /* Vanlig CSS */
+    margin: 2vw;
+    padding: 1vw;
+    min-width: 20vw;
 }
 
 #bloonDivCol {
@@ -24,8 +46,8 @@ body {
     text-align: center;
     background-color: rgb(208, 160, 39);
     color: white;
-    border-color: black;
-    border-width: 5;
+    border-color: rgb(30, 30, 30);
+    border-width: 3;
     border-style: solid;
     border-radius: 10px;
 }

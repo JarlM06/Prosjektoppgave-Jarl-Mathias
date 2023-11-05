@@ -49,3 +49,29 @@
 2. Lett
 3. Simpelt design som fungerer, knapper trenger oppfriskning
 4. Finere knapper, mildere stigning kostnader
+
+# Bruker 3
+1. En enkel nettside med en ballong
+2. Får flere 'pops'
+3. Knappen endrer farge
+4. Oppgraderinger gir mer 'pops'
+5. Flere 'pops' per klikk og oppgraderinger
+6. Ballongen endrer farge, 'pops' øker.
+
+1. Grei tidsfordriv
+2. Enkelt og greit
+3. Ok, men kan forbedres
+4. Trenger mer å gjøre
+
+# Bruker 4
+1. Et spill med en ballong og noen knapper
+2. Får flere 'pops' per klikk
+3. Knappene blir grønne
+4. Oppgraderingene øker 'pops' på ulike måter
+5. Klikke ballongen og oppgradere
+6. Ballongen blir blå, mer 'pops' per klikk.
+
+1. Gøy i starten, men lite variasjon
+2. Brukervennlig
+3. Grafikken er grei
+4. Flere oppgraderinger og mer variasjon i design

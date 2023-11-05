@@ -75,3 +75,11 @@
 2. Brukervennlig
 3. Grafikken er grei
 4. Flere oppgraderinger og mer variasjon i design
+
+
+# Siste tanker
+- Fornøyd med hvordan spillet endte ut
+- Vil nok helst ha lagt til flere oppgraderinger, men det er en grense på hvor mye jeg har tid til
+- Fungerer bra som et grunnspill, som enkelt kan oppdateres og utvikles til noe bedre
+- Burde nok ha jobbet litt mer med designet (laget flere/bedre modeller i Adobe Illustrator)
+- Er fornøyd med bruken av GitHub og kommentarer
